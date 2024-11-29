@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAYVIOR_DEV | Coming Soon</title>
+    <link rel="shortcut icon" href="https://i.ibb.co/M1TYQR2/favicon.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        }
+        .code-font {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .terminal-cursor::after {
+            content: "█";
+            animation: cursor 1s infinite;
+        }
+        @keyframes cursor {
+            50% { opacity: 0; }
+        }
+        .float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #4CAF50, #2196F3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="text-white min-h-screen flex flex-col justify-center">
+    <main class="container mx-auto px-6 py-20">
+        <div class="text-center">
+            <div class="inline-block mb-6 code-font text-green-400 px-4 py-2 rounded-full glassmorphism">
+                PAYVIOR_DEV.status = launching_soon() 🚀
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                PAYVIOR_DEV Is <br>
+                <span class="gradient-text">Coming Soon</span>
+            </h1>
+            
+            <p class="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
+                Pakistan's first developer-first payment platform is almost here. 
+                <span class="text-green-400">Get ready for the revolution! ⚡️</span>
+            </p>
+
+            <!-- Terminal Effect -->
+            <div class="max-w-3xl mx-auto glassmorphism p-6 text-left mb-12">
+                <div class="flex items-center mb-4 space-x-2">
+                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                </div>
+                <div class="code-font text-sm terminal-cursor" id="terminal-text">
+                    <span class="text-green-400">payvior_dev</span>:<span class="text-blue-400">~</span>$ initializing_platform
+                </div>
+            </div>
+
+            <!-- Progress Indication -->
+            <div class="flex justify-center items-center gap-8 flex-wrap">
+                <div class="glassmorphism p-4 rounded-xl">
+                    <div class="code-font">
+                        <span class="text-green-400">PAYVIOR_DEV.progress</span>: 75%
+                    </div>
+                </div>
+                <div class="glassmorphism p-4 rounded-xl">
+                    <div class="code-font">
+                        <span class="text-yellow-400">PAYVIOR_DEV.eta</span>: soon™
+                    </div>
+                </div>
+                <div class="glassmorphism p-4 rounded-xl">
+                    <div class="code-font">
+                        <span class="text-blue-400">PAYVIOR_DEV.chai_consumed</span>: ∞
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="fixed bottom-0 w-full py-6 text-center text-gray-400">
+        <p>© 2024 PAYVIOR_DEV • Made with ❤️ in Pakistan</p>
+    </footer>
+
+    <script>
+        const messages = [
+            "initializing_platform...",
+            "brewing_chai...",
+            "integrating_payments...",
+            "optimizing_transactions...",
+            "PAYVIOR_DEV.launch() = soon! 🚀"
+        ];
+
+        let messageIndex = 0;
+        let charIndex = 0;
+
+        function typeMessage() {
+            if (messageIndex < messages.length) {
+                const terminal = document.getElementById('terminal-text');
+                const currentMessage = messages[messageIndex];
+
+                if (charIndex < currentMessage.length) {
+                    terminal.innerHTML = `<span class="text-green-400">payvior_dev</span>:<span class="text-blue-400">~</span>$ ${currentMessage.substring(0, charIndex + 1)}`;
+                    charIndex++;
+                    setTimeout(typeMessage, 50);
+                } else {
+                    setTimeout(() => {
+                        messageIndex++;
+                        charIndex = 0;
+                        if (messageIndex >= messages.length) messageIndex = 0;
+                        typeMessage();
+                    }, 1000);
+                }
+            }
+        }
+
+        setTimeout(typeMessage, 1000);
+    </script>
+</body>
+</html>
